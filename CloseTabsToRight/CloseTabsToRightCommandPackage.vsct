@@ -15,7 +15,7 @@
     <Buttons>
       <Button guid="guidCloseTabsToRightCommandPackageCmdSet" id="CloseTabsToRightCommandId" priority="0x0100" type="Button">
         <Parent guid="guidCloseTabsToRightCommandPackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <!--<Icon guid="guidImages" id="bmpPic1" />-->
         <!--<CommandFlag>DefaultDisabled</CommandFlag>-->
         <Strings>
           <ButtonText>Close Tabs to the Right</ButtonText>

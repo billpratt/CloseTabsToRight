@@ -15,18 +15,13 @@ See the [changelog](CHANGELOG.md) for changes and roadmap.
 
 ## Features
 
-- Feature 1
-- Feature 2
-  - Sub feature
+- Close all tabs to the right of the current document.
 
-### Feature 1
-Describe feature 1. Add screenshots/code samples etc.
+### Close tabs to the right of the current document
+Right-click on the current document's tab and select *Close Tabs to the Right* to close all tabs to the right.
 
-### Feature 2
-Describe feature 2. Add screenshots/code samples etc.
+![Context Menu](art/context-menu.png)
 
-#### Sub feature
-Describe sub feature. Add screenshots/code samples etc.
 
 ## Contribute
 Check out the [contribution guidelines](CONTRIBUTING.md)

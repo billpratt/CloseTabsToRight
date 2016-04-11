@@ -3,9 +3,11 @@
   <Metadata>
     <Identity Id="ee6375e5-ed09-4fba-a897-895813190958" Version="1.0" Language="en-US" Publisher="Bill Pratt" />
     <DisplayName>Close Tabs To Right</DisplayName>
-    <Description xml:space="preserve">Close document tabs to the right of the current document.</Description>
+    <Description xml:space="preserve">Close document tabs to the right of the current document just like in Chrome!</Description>
     <License>Resources\LICENSE</License>
     <ReleaseNotes />
+    <Icon>Resources\Icon.png</Icon>
+    <PreviewImage>Resources\Preview.png</PreviewImage>
     <Tags>close, tab, tabs, to, right, document</Tags>
   </Metadata>
   <Installation>

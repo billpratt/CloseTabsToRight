@@ -6,7 +6,7 @@
     <Description xml:space="preserve">Close document tabs to the right of the current document.</Description>
     <MoreInfo>https://github.com/billpratt/CloseTabsToRight</MoreInfo>
     <License>Resources\LICENSE</License>
-    <ReleaseNotes />
+    <ReleaseNotes >https://github.com/billpratt/CloseTabsToRight/blob/master/CHANGELOG.md</ReleaseNotes>
     <Icon>Resources\Icon.png</Icon>
     <PreviewImage>Resources\Preview.png</PreviewImage>
     <Tags>close, tab, tabs, to, right, document</Tags>

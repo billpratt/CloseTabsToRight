@@ -8,6 +8,8 @@ or get the [CI build](http://vsixgallery.com/extension/ee6375e5-ed09-4fba-a897-8
 
 ---------------------------------------
 
+Visual Studio 2015-2017 extension
+
 Close document tabs to the right of the current document.
 
 See the [changelog](CHANGELOG.md) for changes and roadmap.

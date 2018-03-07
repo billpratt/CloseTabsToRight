@@ -1,6 +1,7 @@
 # Roadmap
 
 - [ ] Disable command if no documents to the right of the current document
+- [ ] Close tabs to the left
 
 Features that have a checkmark are complete and available for
 download in the

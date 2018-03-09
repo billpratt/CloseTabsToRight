@@ -1,42 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <Extern href="stdidcmd.h"/>
+  <Extern href="stdidcmd.h" />
 
-  <Extern href="vsshlids.h"/>
+  <Extern href="vsshlids.h" />
 
-  <Commands package="guidCloseTabsToRightCommandPackage">
+  <Commands package="guidCommandPackage">
     <Groups>
-      <Group guid="guidCloseTabsToRightCommandPackageCmdSet" id="MyMenuGroup" priority="0x0100">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_EZDOCWINTAB"/>
+      <Group guid="guidCommandPackageCmdSet" id="MyMenuGroup" priority="0x0100">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_EZDOCWINTAB" />
       </Group>
     </Groups>
 
     <Buttons>
-      <Button guid="guidCloseTabsToRightCommandPackageCmdSet" id="CloseTabsToRightCommandId" priority="0x0100" type="Button">
-        <Parent guid="guidCloseTabsToRightCommandPackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidCommandPackageCmdSet" id="CloseTabsToRightCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidCommandPackageCmdSet" id="MyMenuGroup" />
         <!--<Icon guid="guidImages" id="bmpPic1" />-->
         <!--<CommandFlag>DefaultDisabled</CommandFlag>-->
         <Strings>
           <ButtonText>Close Tabs to the Right</ButtonText>
         </Strings>
       </Button>
+      <Button guid="guidCommandPackageCmdSet" id="CloseTabsToLeftCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidCommandPackageCmdSet" id="MyMenuGroup" />
+        <!--<Icon guid="guidImages1" id="bmpPic1" />-->
+        <Strings>
+          <ButtonText>Close Tabs to the Left</ButtonText>
+        </Strings>
+      </Button>
     </Buttons>
 
     <Bitmaps>
-      <Bitmap guid="guidImages" href="Resources\CloseTabsToRightCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough"/>
+      <Bitmap guid="guidImages" href="Resources\CloseTabsToRightCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
+      <Bitmap guid="guidImages1" href="Resources\CloseTabsToLeftCommand.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
     </Bitmaps>
   </Commands>
 
   <Symbols>
-    <GuidSymbol name="guidCloseTabsToRightCommandPackage" value="{7696d777-6fe2-44fa-96fc-ac6a1072f7a1}" />
+    <GuidSymbol name="guidCommandPackage" value="{7696d777-6fe2-44fa-96fc-ac6a1072f7a1}" />
 
-    <GuidSymbol name="guidCloseTabsToRightCommandPackageCmdSet" value="{d240bb4e-16ec-4c43-bdad-3847641f8e30}">
+    <GuidSymbol name="guidCommandPackageCmdSet" value="{d240bb4e-16ec-4c43-bdad-3847641f8e30}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="CloseTabsToRightCommandId" value="0x0100" />
+      <IDSymbol name="CloseTabsToLeftCommandId" value="0x0101"  />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{61ed8618-158e-4904-910d-dc5d80a539fd}" >
+    <GuidSymbol name="guidImages" value="{61ed8618-158e-4904-910d-dc5d80a539fd}">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  
+    <GuidSymbol value="{787a6001-434d-4d63-b99b-a406ffa6db37}" name="guidImages1">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />

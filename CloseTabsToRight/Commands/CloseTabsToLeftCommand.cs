@@ -4,9 +4,7 @@ using System.ComponentModel.Design;
 using System.Linq;
 using EnvDTE;
 using EnvDTE80;
-using Microsoft.VisualStudio;
 using Microsoft.VisualStudio.Platform.WindowManagement;
-using Microsoft.VisualStudio.PlatformUI.Shell;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using static CloseTabsToRight.Helpers.WindowFrameHelpers;
@@ -17,7 +15,7 @@ namespace CloseTabsToRight.Commands
     /// <summary>
     /// Command handler
     /// </summary>
-    internal sealed class CloseTabsToRightCommand
+    internal sealed class CloseTabsToLeftCommand
     {
         /// <summary>
         /// VS Package that provides this command, not null.
@@ -27,11 +25,11 @@ namespace CloseTabsToRight.Commands
         private readonly DTE2 _dte;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CloseTabsToRightCommand"/> class.
+        /// Initializes a new instance of the <see cref="CloseTabsToLeftCommand"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
         /// </summary>
         /// <param name="package">Owner package, not null.</param>
-        private CloseTabsToRightCommand(Package package)
+        private CloseTabsToLeftCommand(Package package)
         {
             if (package == null)
             {
@@ -43,17 +41,20 @@ namespace CloseTabsToRight.Commands
 
             if (ServiceProvider.GetService(typeof(IMenuCommandService)) is OleMenuCommandService commandService)
             {
-                var id = new CommandID(PackageGuids.GuidCommandPackageCmdSet, PackageIds.CloseTabsToRightCommandId);
-                var command = new OleMenuCommand(CommandCallback, id);
-                //command.BeforeQueryStatus += BeforeQueryStatus;
-                commandService.AddCommand(command);
+                var menuCommandId = new CommandID(PackageGuids.GuidCommandPackageCmdSet, PackageIds.CloseTabsToLeftCommandId);
+                var menuItem = new MenuCommand(this.CommandCallback, menuCommandId);
+                commandService.AddCommand(menuItem);
             }
         }
 
         /// <summary>
         /// Gets the instance of the command.
         /// </summary>
-        public static CloseTabsToRightCommand Instance { get; private set; }
+        public static CloseTabsToLeftCommand Instance
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Gets the service provider from the owner package.
@@ -66,20 +67,7 @@ namespace CloseTabsToRight.Commands
         /// <param name="package">Owner package, not null.</param>
         public static void Initialize(Package package)
         {
-            Instance = new CloseTabsToRightCommand(package);
-        }
-
-        private void BeforeQueryStatus(object sender, EventArgs e)
-        {
-            var button = (OleMenuCommand)sender;
-
-            var vsWindowFrames = GetVsWindowFrames(ServiceProvider).ToList();
-            var activeFrame = GetActiveWindowFrame(vsWindowFrames, _dte);
-            var docGroup = GetDocumentGroup(activeFrame);
-
-            var docViewsToRight = GetDocumentViewsToRight(activeFrame, docGroup);
-
-            button.Enabled = docViewsToRight.Any();
+            Instance = new CloseTabsToLeftCommand(package);
         }
 
         /// <summary>
@@ -91,12 +79,12 @@ namespace CloseTabsToRight.Commands
         /// <param name="e">Event args.</param>
         private void CommandCallback(object sender, EventArgs e)
         {
-            CloseTabsToRight();
+            CloseTabsToLeft();
         }
 
-        private void CloseTabsToRight()
+        private void CloseTabsToLeft()
         {
-            var vsWindowFrames = GetVsWindowFrames(ServiceProvider).ToList();
+            var vsWindowFrames = GetVsWindowFrames(_package).ToList();
             var windowFrames = vsWindowFrames.Select(vsWindowFrame => vsWindowFrame as WindowFrame);
             var activeFrame = GetActiveWindowFrame(vsWindowFrames, _dte);
 
@@ -110,19 +98,12 @@ namespace CloseTabsToRight.Commands
             var documentViews = docGroup.Children.Where(c => c != null && c.GetType() == typeof(DocumentView)).Select(c => c as DocumentView);
 
             var framesToClose = new List<WindowFrame>();
-            var foundActive = false;
             foreach (var name in documentViews.Select(documentView => CleanDocumentViewName(documentView.Name)))
             {
-                if (!foundActive)
+                if (name == viewMoniker)
                 {
-                    if (name == viewMoniker)
-                    {
-                        foundActive = true;
-
-                    }
-
-                    // Skip over documents until we have found the first one after the active
-                    continue;
+                    // We found the active tab. No need to continue
+                    break;
                 }
 
                 var frame = windowFramesDict[name];
@@ -134,34 +115,6 @@ namespace CloseTabsToRight.Commands
             {
                 frame.CloseFrame(__FRAMECLOSE.FRAMECLOSE_PromptSave);
             }
-        }
-
-        private IEnumerable<DocumentView> GetDocumentViewsToRight(WindowFrame activeWindowFrame, DocumentGroup docGroup)
-        {
-            var docViewsToRight = new List<DocumentView>();
-            var viewMoniker = activeWindowFrame.FrameMoniker.ViewMoniker;
-            var documentViews = docGroup.Children.Where(c => c != null && c.GetType() == typeof(DocumentView)).Select(c => c as DocumentView);
-            var foundActive = false;
-
-            foreach (var documentView in documentViews)
-            {
-                var name = CleanDocumentViewName(documentView.Name);
-                if (!foundActive)
-                {
-                    if (name == viewMoniker)
-                    {
-                        foundActive = true;
-
-                    }
-
-                    // Skip over documents until we have found the first one after the active
-                    continue;
-                }
-
-                docViewsToRight.Add(documentView);
-            }
-
-            return docViewsToRight;
         }
     }
 }

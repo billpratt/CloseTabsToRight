@@ -12,14 +12,15 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
+# 1.2
+
+- [x] Close all document tabs to the left of the current document
+
 # 1.1
-**2017-03-17**
 
 - [x] Visual Studio 2017 support
 
 ## 1.0
-
-**2016-04-11**
 
 - [x] Initial release
 - [x] Close all document tabs to the right of the current document

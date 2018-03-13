@@ -12,12 +12,14 @@ namespace CloseTabsToRight
     /// </summary>
     internal sealed partial class PackageGuids
     {
-        public const string guidCloseTabsToRightCommandPackageString = "7696d777-6fe2-44fa-96fc-ac6a1072f7a1";
-        public const string guidCloseTabsToRightCommandPackageCmdSetString = "d240bb4e-16ec-4c43-bdad-3847641f8e30";
-        public const string guidImagesString = "61ed8618-158e-4904-910d-dc5d80a539fd";
-        public static Guid guidCloseTabsToRightCommandPackage = new Guid(guidCloseTabsToRightCommandPackageString);
-        public static Guid guidCloseTabsToRightCommandPackageCmdSet = new Guid(guidCloseTabsToRightCommandPackageCmdSetString);
-        public static Guid guidImages = new Guid(guidImagesString);
+        public const string GuidCommandPackageString = "7696d777-6fe2-44fa-96fc-ac6a1072f7a1";
+        public const string GuidCommandPackageCmdSetString = "d240bb4e-16ec-4c43-bdad-3847641f8e30";
+        public const string GuidImagesString = "61ed8618-158e-4904-910d-dc5d80a539fd";
+        public const string GuidImages1String = "f3fbf0b5-99b0-46cc-aa0b-85987e9b4c88";
+        public static Guid GuidCommandPackage = new Guid(GuidCommandPackageString);
+        public static Guid GuidCommandPackageCmdSet = new Guid(GuidCommandPackageCmdSetString);
+        public static Guid GuidImages = new Guid(GuidImagesString);
+        public static Guid GuidImages1 = new Guid(GuidImages1String);
     }
     /// <summary>
     /// Helper class that encapsulates all CommandIDs uses across VS Package.
@@ -26,6 +28,7 @@ namespace CloseTabsToRight
     {
         public const int MyMenuGroup = 0x1020;
         public const int CloseTabsToRightCommandId = 0x0100;
+        public const int CloseTabsToLeftCommandId = 0x0101;
         public const int bmpPic1 = 0x0001;
         public const int bmpPic2 = 0x0002;
         public const int bmpPicSearch = 0x0003;

@@ -33,7 +33,7 @@ namespace CloseTabsToRight
     [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    [Guid(PackageGuids.guidCloseTabsToRightCommandPackageString)]
+    [Guid(PackageGuids.GuidCommandPackageString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
     public sealed class VsPackage : Package
     {       
@@ -45,6 +45,7 @@ namespace CloseTabsToRight
         {
             CloseTabsToRightCommand.Initialize(this);
             base.Initialize();
+            CloseTabsToLeftCommand.Initialize(this);
         }
     }
 }

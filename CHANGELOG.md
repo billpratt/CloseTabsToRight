@@ -11,6 +11,10 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
+# 1.3
+
+- [x] Visual Studio 2019 support
+
 # 1.2
 
 - [x] Close all document tabs to the left of the current document

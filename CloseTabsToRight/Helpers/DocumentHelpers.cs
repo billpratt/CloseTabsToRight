@@ -1,6 +1,6 @@
-﻿using Microsoft.VisualStudio.Platform.WindowManagement;
+﻿using System.Text.RegularExpressions;
+using Microsoft.VisualStudio.Platform.WindowManagement;
 using Microsoft.VisualStudio.PlatformUI.Shell;
-using System.Text.RegularExpressions;
 
 namespace CloseTabsToRight.Helpers
 {

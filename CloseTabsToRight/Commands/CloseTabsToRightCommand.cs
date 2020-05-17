@@ -1,15 +1,15 @@
-﻿using EnvDTE;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq;
+using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Platform.WindowManagement;
 using Microsoft.VisualStudio.PlatformUI.Shell;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
-using static CloseTabsToRight.Helpers.WindowFrameHelpers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
 using static CloseTabsToRight.Helpers.DocumentHelpers;
+using static CloseTabsToRight.Helpers.WindowFrameHelpers;
 
 namespace CloseTabsToRight.Commands
 {

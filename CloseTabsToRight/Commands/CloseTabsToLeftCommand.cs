@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using EnvDTE;
+﻿using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Platform.WindowManagement;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using static CloseTabsToRight.Helpers.WindowFrameHelpers;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq;
 using static CloseTabsToRight.Helpers.DocumentHelpers;
 
 namespace CloseTabsToRight.Commands
@@ -92,12 +92,12 @@ namespace CloseTabsToRight.Commands
             if (windowFrame == null)
                 return;
 
-            var windowFramesDict = windowFrames.ToDictionary(frame => frame.FrameMoniker.ViewMoniker);
+            var windowFramesDict = windowFrames.GroupBy(x => x.FrameMoniker.ViewMoniker).ToDictionary(frame => frame.First().FrameMoniker.ViewMoniker, frame => frame.First());
             var docGroup = GetDocumentGroup(windowFrame);
             var viewMoniker = windowFrame.FrameMoniker.ViewMoniker;
             var documentViews = docGroup.Children.Where(c => c != null && c.GetType() == typeof(DocumentView)).Select(c => c as DocumentView);
 
-            var framesToClose = new List<WindowFrame>();
+            var framesToClose = new HashSet<WindowFrame>();
             foreach (var name in documentViews.Select(documentView => CleanDocumentViewName(documentView.Name)))
             {
                 if (name == viewMoniker)
@@ -107,12 +107,20 @@ namespace CloseTabsToRight.Commands
                 }
 
                 var frame = windowFramesDict[name];
-                if (frame != null)
+                if (frame != null && !framesToClose.Contains(frame))
                     framesToClose.Add(frame);
             }
 
             foreach (var frame in framesToClose)
             {
+                if (frame.Clones != null && frame.Clones.Any())
+                {
+                    var clones = frame.Clones.ToList();
+                    foreach (var clone in clones)
+                    {
+                        clone.CloseFrame(__FRAMECLOSE.FRAMECLOSE_PromptSave);
+                    }
+                }
                 frame.CloseFrame(__FRAMECLOSE.FRAMECLOSE_PromptSave);
             }
         }

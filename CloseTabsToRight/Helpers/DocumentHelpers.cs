@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.Platform.WindowManagement;
 using Microsoft.VisualStudio.PlatformUI.Shell;
+using System.Text.RegularExpressions;
 
 namespace CloseTabsToRight.Helpers
 {
@@ -10,7 +11,9 @@ namespace CloseTabsToRight.Helpers
             if (string.IsNullOrEmpty(name))
                 return "";
 
-            return name.StartsWith("D:0:0:") ? name.Substring(6) : name;
+            //Name begins with "D:{number}:{number}:" where {number} can vary 
+            //depending on the number of tabs open for the same file
+            return Regex.IsMatch(name, @"^(D:\d+:\d+:)") ? name.Substring(6) : name;
         }
 
         public static DocumentGroup GetDocumentGroup(WindowFrame windowFrame)

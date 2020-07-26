@@ -1,6 +1,7 @@
 # Roadmap
 
 - [ ] Disable command if no documents to the right of the current document
+- [ ] [Issue #7 - "CloseTabsToRight Options not Visible on Source Control Explorer Tab"](https://github.com/billpratt/CloseTabsToRight/issues/7)
 
 Features that have a checkmark are complete and available for
 download in the

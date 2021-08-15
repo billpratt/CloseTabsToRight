@@ -12,7 +12,12 @@ download in the
 These are the changes to each version that has been released
 on the official Visual Studio extension gallery.
 
+# 1.5
+
+- [x] Visual Studio 2022 support
+
 # 1.4
+
 - [x] Fixed issue where documents wouldn't close when multiple of the same document were open - thanks [@eurubkov](https://github.com/eurubkov)!
 
 # 1.3

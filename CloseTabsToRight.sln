@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34601.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloseTabsToRight", "CloseTabsToRight\CloseTabsToRight.csproj", "{52DA18E3-5D7D-4582-9167-C698A1C4ED59}"
 EndProject
@@ -15,7 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CloseTabsToRight.Shared", "CloseTabsToRight.Shared\CloseTabsToRight.Shared.shproj", "{6DA6C1E1-F940-49CE-A7AC-0CFB0A9D95B0}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		CloseTabsToRight.Shared\CloseTabsToRight.Shared.projitems*{52da18e3-5d7d-4582-9167-c698a1c4ed59}*SharedItemsImports = 4
+		CloseTabsToRight.Shared\CloseTabsToRight.Shared.projitems*{6da6c1e1-f940-49ce-a7ac-0cfb0a9d95b0}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -28,5 +34,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35FC852C-A27E-4C12-A2FA-8EE222DD53DE}
 	EndGlobalSection
 EndGlobal

@@ -39,7 +39,7 @@ namespace CloseTabsToRight
     [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]
     [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
-    public sealed class VsPackage : AsyncPackage
+    public sealed class CloseTabsToRightPackage : AsyncPackage
     {
         /// <summary>
         /// Initialization of the package; this method is called right after the package is sited, so this is the place

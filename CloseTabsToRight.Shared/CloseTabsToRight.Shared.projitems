@@ -9,5 +9,10 @@
     <Import_RootNamespace>CloseTabsToRight.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CloseTabsToRightPackage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\CloseTabsToLeftCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Commands\CloseTabsToRightCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\DocumentHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\WindowFrameHelpers.cs" />
   </ItemGroup>
 </Project>

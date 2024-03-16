@@ -55,10 +55,10 @@
     <Compile Include="source.extension.cs">
       <DependentUpon>source.extension.vsixmanifest</DependentUpon>
     </Compile>
-    <Compile Include="VsCommandTable.cs">
+    <Compile Include="CloseTabsToRight.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VsCommandTable.vsct</DependentUpon>
+      <DependentUpon>CloseTabsToRight.vsct</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -75,10 +75,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <VSCTCompile Include="VsCommandTable.vsct">
+    <VSCTCompile Include="CloseTabsToRight.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
       <Generator>VsctGenerator</Generator>
-      <LastGenOutput>VsCommandTable.cs</LastGenOutput>
+      <LastGenOutput>CloseTabsToRight.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </VSCTCompile>
     <Content Include="Resources\CloseTabsToRightCommand.png" />

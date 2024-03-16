@@ -1,7 +1,5 @@
 # CloseTabsToRight
 
-[![Build status](https://ci.appveyor.com/api/projects/status/631dk731mhovcpbp?svg=true)](https://ci.appveyor.com/project/billpratt/closetabstoright)
-
 Download this extension from the [VS Marketplace](https://visualstudiogallery.msdn.microsoft.com/0da1748d-6967-445f-b61b-7c447f3f4107)
 or get the [CI build](http://vsixgallery.com/extension/ee6375e5-ed09-4fba-a897-895813190958/).
 
